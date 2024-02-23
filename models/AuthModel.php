@@ -3,6 +3,7 @@
 class AuthModel extends Database
 {
     protected $fillable = [
+        'id',
         'full_name',
         'email', 
         'photo',

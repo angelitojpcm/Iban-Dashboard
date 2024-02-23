@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div>
-                            <form id="edit-user" data-id="<?= $data->user->id?>">
+                            <form id="profile-update" data-id="<?= $data->user->id?>">
                                 <!-- row -->
 
                                 <div class="mb-3 row">

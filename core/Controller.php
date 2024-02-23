@@ -59,6 +59,7 @@ class Controller extends Session
     {
         return strtolower(get_class($this)) == strtolower($controller) ? 'active' : '';
     }
+
     //
 
     public function filter($object, $fillable)

@@ -53,8 +53,18 @@ class Auth extends Controller
                         'user' => $data
                     ]);
                 } else {
-                    $this->json(['error' => 'Invalid password']);
+                    $this->json([
+                        'success' => false,
+                        'code' => 400,
+                        'message' => 'El usuario no existe o la contraseña es incorrecta'
+                    ]);
                 }
+            }else {
+                $this->json([
+                    'success' => false,
+                    'code' => 400,
+                    'message' => 'El usuario no existe o la contraseña es incorrecta'
+                ]);
             }
         }
     }

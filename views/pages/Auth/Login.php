@@ -19,7 +19,7 @@
               <!-- Username -->
               <div class="mb-3">
                 <label for="email" class="form-label">Username or email</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" value="admin@mail.com" required="">
+                <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" value="admin@gmail.com" required="">
               </div>
               <!-- Password -->
               <div class="mb-3">

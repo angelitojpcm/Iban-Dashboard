@@ -1,9 +1,12 @@
 <?php
 class Users extends Controller
 {
+    protected $user;
+
     public function __construct()
     {
         parent::__construct();
+        $this->user = $this->get('user');
     }
 
     public function list()
@@ -115,8 +118,18 @@ class Users extends Controller
             $data['photo'] = $photoNameNew;
         }
 
+        if(!empty($_POST['password'])) {
+            $data['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        }
+
         try {
             $this->model->update($id, $data);
+
+            if ($this->user->id == $id) {
+                $this->user = $this->model->find($id);
+                $this->set('user', $this->user);
+            }
+
             $this->json(['status' => 200, 'message' => 'Usuario actualizado correctamente']);
         } catch (Exception $e) {
             $this->json(['status' => 400, 'message' => 'Hubo un error al actualizar el usuario: ' . $e->getMessage()]);

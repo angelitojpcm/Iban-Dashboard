@@ -148,9 +148,9 @@
                         <ul class="list-unstyled">
 
                             <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#!">
+                                <a class="dropdown-item d-flex align-items-center" href="<?=BASE_URL?>profile">
                                     <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>
-                                    Editar Profile
+                                    Editar Perfil
                                 </a>
                             </li>
                             <li>
