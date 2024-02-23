@@ -6,7 +6,7 @@ class AuthModel extends Database
         'full_name',
         'email', 
         'photo',
-        'rol_id=',
+        'rol_id',
     ];
     
     public function __construct()

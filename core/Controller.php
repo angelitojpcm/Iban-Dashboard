@@ -1,6 +1,6 @@
 <?php
 
-class Controller
+class Controller extends Session
 {
     protected $model;
     protected $views;
@@ -8,8 +8,16 @@ class Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->views = new Views();
         $this->loadModel();
+
+        // Verificar si el usuario está autenticado
+        if (!$this->isAuth() && get_class($this) !== 'Auth') {
+            // Si el usuario no está autenticado, redirigir al inicio de sesión
+            $this->redirect('auth/login');
+            exit();
+        }
     }
 
     public function loadModel($modelName = null)
@@ -46,6 +54,11 @@ class Controller
         header("Location: " . BASE_URL . $url);
     }
 
+
+    public function isActive($controller)
+    {
+        return strtolower(get_class($this)) == strtolower($controller) ? 'active' : '';
+    }
     //
 
     public function filter($object, $fillable)

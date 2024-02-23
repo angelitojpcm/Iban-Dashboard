@@ -17,11 +17,16 @@ class Auth extends Controller
             'title' => 'Sign In',
         ];
 
-        $this->views->render($this, "login", $data);
+        if (!$this->isAuth()) {
+            // Si el usuario no está autenticado, renderizar la vista de inicio de sesión
+            $this->views->render($this, "login", $data);
+        } else {
+            // Si el usuario está autenticado, redirigir al panel de control
+            $this->redirect('dashboard');
+        }
     }
 
     //Validate login
-
     public function validate()
     {
         if ($_POST) {
@@ -40,11 +45,24 @@ class Auth extends Controller
                     $RoleFilleable = $this->rol->getFillable();
                     $data->role = $this->filter($this->rol->one($user->rol_id), $RoleFilleable);
 
-                    $this->json($data);
+                    //Save the user in the session
+                    $_SESSION['user'] = $data;
+                    $this->json([
+                        'success' => true,
+                        'code' => 200,
+                        'user' => $data
+                    ]);
                 } else {
                     $this->json(['error' => 'Invalid password']);
                 }
             }
         }
     }
+
+    //Logout
+    public function logout()
+    {
+        $this->destroy();
+        $this->redirect('auth/login');
+    }   
 }

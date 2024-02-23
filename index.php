@@ -23,8 +23,12 @@ if (file_exists($dirController)) {
     if (method_exists($controller, $method)) {
         $controller->$method($param);
     } else {
-        echo "Method not found";
+        require_once "controllers/Errors.php";
+        $ctr = new Errors();
+        $ctr->index();
     }
 } else {
-    echo "Controller not found";
+    require_once "controllers/Errors.php";
+    $ctr = new Errors();
+    $ctr->index();
 }
