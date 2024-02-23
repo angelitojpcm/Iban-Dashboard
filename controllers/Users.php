@@ -41,7 +41,6 @@ class Users extends Controller
                 'user' => $user
             ];
             $this->views->render($this, 'edit', $data);
-            
         } else {
             $data = [
                 'title' => 'Error 404',
@@ -50,6 +49,16 @@ class Users extends Controller
             ];
 
             $this->views->render('Errors', '404', $data);
+        }
+    }
+
+    public function update($params)
+    {
+        $id = $params[0];
+
+        if ($_POST['photo']) {
+          //Guardar la imagen en la carpeta assets/images/avatar
+            $photo = $_POST['photo'];
         }
     }
 }

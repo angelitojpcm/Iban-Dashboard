@@ -68,7 +68,7 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="#!" class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" data-template="editOne">
+                                                <a href="<?=BASE_URL?>users/edit/<?=$user->id?>" class="btn btn-ghost btn-icon btn-sm rounded-circle texttooltip" data-template="editOne">
                                                     <i data-feather="edit" class="icon-xs"></i>
                                                     <div id="editOne" class="d-none">
                                                         <span>Edit</span>

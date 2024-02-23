@@ -133,6 +133,13 @@
 
     users: function () {
       const btn = $(".delete-user");
+      const edit = $("#edit-user");
+      let photoFile = null;
+
+      $('.file-input').on('change', function () {
+        photoFile = this.files[0];
+      });
+
 
       btn.on('click', function () {
         const id = $(this).data("id");
@@ -202,6 +209,63 @@
           }
         });
       })
+
+      // Edit user
+      edit.on('submit', function (e) {
+        e.preventDefault();
+        const id = $(this).data('id');
+        let data = new FormData();
+        // Agregar solo los campos que tienen valor
+        $(this).serializeArray().forEach(({ name, value }) => {
+          if (value) {
+            data.append(name, value);
+          }
+        });
+
+        if (photoFile) {
+          data.append('photo', photoFile);
+        }
+
+        $.ajax({
+          url: page.BASE_URL + 'users/update/' + id,
+          type: "POST",
+          data: data,
+          dataType: "json",
+          contentType: false,
+          processData: false,
+          success: function (resp) {
+            if (resp.status != 200) {
+              Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "¡Error!",
+                text: resp.message,
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true,
+                timerProgressBar: true,
+              });
+              return;
+            }
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "¡Usuario actualizado!",
+              text: "Actualizando...",
+              showConfirmButton: false,
+              timer: 1500,
+              toast: true,
+              timerProgressBar: true,
+              didOpen: () => {
+                // setTimeout(() => {
+                //   window.location.href = page.BASE_URL + 'users/list';
+                // }, 1500);
+              },
+            });
+          },
+        });
+      });
     },
   };
 
