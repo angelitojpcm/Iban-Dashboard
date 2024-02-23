@@ -1,12 +1,16 @@
 <?php
-class Database {
+class Database
+{
     private $host = DB_HOST;
     private $user = DB_USER;
     private $password = DB_PASS;
     private $database = DB_NAME;
     private $charset = DB_CHARSET;
 
-    public function __construct() {
+    protected $fillable = [];
+    
+    public function __construct()
+    {
         $this->connect();
     }
 
@@ -24,5 +28,10 @@ class Database {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
         return $pdo;
+    }
+
+    public function getFillable()
+    {
+        return $this->fillable;
     }
 }
