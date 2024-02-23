@@ -208,3 +208,5 @@
         </div>
     </div>
 </div>
+<!-- Page content -->
+<div id="app-content">

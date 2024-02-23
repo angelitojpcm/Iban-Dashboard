@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Codescandy">
-    <title><?= $data->title ?> | Dash UI - Bootstrap 5 Admin Dashboard Template</title>
+    <title><?= isset($data->title) ? $data->title  : '' ?> | Dash UI - Bootstrap 5 Admin Dashboard Template</title>
 
     <!-- Favicon icon-->
     <link rel="shortcut icon" type="image/x-icon" href="<?= BASE_URL ?>assets/images/favicon/favicon.ico">

@@ -14,7 +14,7 @@ class Views  extends Session
     {
         //Convert data to objecto example $data->title
         $data = (object) $data;
-        $ctr = get_class($controller);
+        $ctr = is_object($controller) ? get_class($controller) : $controller;
         if ($ctr == "Home") {
             $view = "views/pages/" . $view . ".php";
         } else {
@@ -27,7 +27,7 @@ class Views  extends Session
             // Pasar la instancia del controlador a la vista
             $this->ctr = $controller;
 
-            if (!$ctr == 'Errors') {
+            if ($ctr != 'Errors') {
                 require_once "views/layouts/sidebar.php";
             }
         }
