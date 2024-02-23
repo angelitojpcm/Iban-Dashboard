@@ -10,8 +10,8 @@
 <script src="<?= BASE_URL?>assets/libs/apexcharts/dist/apexcharts.min.js"></script>
 <script src="<?= BASE_URL?>assets/js/vendors/chart.js"></script>
 
-<!-- Theme JS -->
-<script src="<?= BASE_URL?>assets/js/theme.min.js"></script>
+<!--Customs Js-->
+<script src="<?= BASE_URL?>assets/js/main.js"></script>
 </body>
 
 </html>

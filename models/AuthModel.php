@@ -6,6 +6,12 @@ class AuthModel extends Database {
     }
 
     public function login($email, $password) {
+
+        //Mostrar contraseña encriptada
+
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        echo $password;
+        die();
         $sql = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['email' => $email]);

@@ -13,6 +13,21 @@ class Auth extends Controller
             'class' => 'container d-flex flex-column',
             'title' => 'Sign In',
         ];
+
         $this->views->render($this, "login", $data);
+    }
+
+    //Validate login
+
+    public function validate()
+    {
+        if ($_POST) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $user = $this->model->login($email, $password);
+
+            $this->json($user);
+        }
     }
 }

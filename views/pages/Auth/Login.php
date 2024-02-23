@@ -15,11 +15,11 @@
               <p class="mb-6">Please enter your user information.</p>
             </div>
             <!-- Form -->
-            <form>
+            <form id="form-login">
               <!-- Username -->
               <div class="mb-3">
                 <label for="email" class="form-label">Username or email</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" required="">
+                <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" required="" autocomplete="off">
               </div>
               <!-- Password -->
               <div class="mb-3">
@@ -41,18 +41,6 @@
                 <div class="d-grid">
                   <button type="submit" class="btn btn-primary">Sign
                     in</button>
-                </div>
-
-                <div class="d-md-flex justify-content-between mt-4">
-                  <div class="mb-2 mb-md-0">
-                    <a href="sign-up.html" class="fs-5">Create An
-                        Account </a>
-                  </div>
-                  <div>
-                    <a href="forget-password.html" class="text-inherit
-                        fs-5">Forgot your password?</a>
-                  </div>
-
                 </div>
               </div>
 
