@@ -1,5 +1,5 @@
 <?php
-class UsersModel extends Database
+class ProfileModel extends Database
 {
     protected $fillable = [
         'id',

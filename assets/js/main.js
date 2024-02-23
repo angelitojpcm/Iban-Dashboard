@@ -258,9 +258,9 @@
               toast: true,
               timerProgressBar: true,
               didOpen: () => {
-                // setTimeout(() => {
-                //   window.location.href = page.BASE_URL + 'users/list';
-                // }, 1500);
+                setTimeout(() => {
+                  window.location.href = page.BASE_URL + 'users/list';
+                }, 1500);
               },
             });
           },
